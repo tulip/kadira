@@ -36,8 +36,6 @@ Package.on_test(function(api) {
   // common server
   api.add_files([
     'tests/utils.js',
-    'tests/ntp.js',
-    'tests/jobs.js',
     'tests/_helpers/globals.js',
     'tests/_helpers/helpers.js',
     'tests/_helpers/init.js',
@@ -79,7 +77,6 @@ Package.on_test(function(api) {
   // common after
   api.add_files([
     'tests/common/default_error_filters.js',
-    'tests/common/send.js'
   ], ['client', 'server']);
 });
 
@@ -99,15 +96,14 @@ function configurePackage(api) {
   // common before
   api.add_files([
     'lib/common/unify.js',
+    'lib/common/api.js',
     'lib/models/base_error.js'
   ], ['client', 'server']);
 
   // only server
   api.add_files([
-    'lib/jobs.js',
     'lib/retry.js',
     'lib/utils.js',
-    'lib/ntp.js',
     'lib/wait_time_builder.js',
     'lib/check_for_oplog.js',
     'lib/tracer/tracer.js',
@@ -133,13 +129,11 @@ function configurePackage(api) {
     'lib/hijack/error.js',
     'lib/hijack/set_labels.js',
     'lib/environment_variables.js',
-    'lib/auto_connect.js',
   ], 'server');
 
   // only client
   api.add_files([
     'lib/retry.js',
-    'lib/ntp.js',
     'lib/client/utils.js',
     'lib/client/models/error.js',
     'lib/client/error_reporters/zone.js',
@@ -158,6 +152,5 @@ function configurePackage(api) {
   // common after
   api.add_files([
     'lib/common/default_error_filters.js',
-    'lib/common/send.js'
   ], ['client', 'server']);
 }
